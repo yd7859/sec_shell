@@ -12,3 +12,5 @@ echo "空密码的用户"
 cat /etc/shadow |  cut -d ":" -f 1-3|grep ::| cut -d ":" -f 1
 
 
+echo "特权用户账号"
+awk -F: '$3==0 {print $1}' /etc/passwd
