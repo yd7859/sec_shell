@@ -3,8 +3,7 @@
 echo "-------------------------------------------------------------------------------------------"
 
 echo "当前对外服务端口："
-netstat -antl|grep LISTEN >tmp_port.txt
-netstat -anul >>tmp_port.txt
+netstat -ntulp > tmp_port.txt
 cat tmp_port.txt
 
 echo "和正常端口不同的端口如下："
