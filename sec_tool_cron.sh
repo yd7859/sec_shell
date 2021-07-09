@@ -37,4 +37,4 @@ ls -l /etc/cron.weekly>tmp_crontab.txt
 file2=/var/local/sec/crontab_weekly.txt
 diff $file1 $file2 -s
 
-
+rm tmp_crontab.txt -f

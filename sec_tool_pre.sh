@@ -6,7 +6,7 @@ else
 fi
 
 crontab -l >/var/local/sec/crontab_l.txt
-ls -l /etc/cron.daily/ >/var/local/sec/crontab_daily.txt
+cat /etc/cron.daily/logrotate >/var/local/sec/crontab_daily.txt
 ls -l /etc/cron.hourly >/var/local/sec/crontab_hourly.txt
 ls -l /etc/cron.weekly >/var/local/sec/crontab_weekly.txt
 ls -l /etc/cron.monthly >/var/local/sec/crontab_monthly.txt
@@ -17,4 +17,4 @@ ls -l /bin > /var/local/sec/bin.txt
 ls -l /usr/bin > /var/local/sec/usrbin.txt
 ls -l /usr/sbin > /var/local/sec/usrsbin.txt
 
-echo "配置文件更新完成。"
+	echo "配置文件更新完成。"

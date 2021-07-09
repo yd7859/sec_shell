@@ -54,9 +54,10 @@ echo "网卡流量信息"
 #watch -n 1 "ifconfig ens32"
 
 eth0=ens32
-echo  -e    "流量进入--流量传出    "
-
-while true; do
+echo  -e    "流量流入-- --流量流出    "
+COUNTER=1
+while [ "$COUNTER" -lt 10 ]; do
+	COUNTER=$(($COUNTER+1))
 	old_in=$(cat /proc/net/dev |grep $eth0 |awk '{print $2}')
 	old_out=$(cat /proc/net/dev |grep $eth0 |awk '{print $10}')
 	sleep 1
@@ -64,6 +65,6 @@ while true; do
 	new_out=$(cat /proc/net/dev |grep $eth0 |awk '{print $10}')
 	in=$(printf "%.1f%s" "$((($new_in-$old_in)/1024))" "KB/s")
 	out=$(printf "%.1f%s" "$((($new_out-$old_out)/1024))" "KB/s")
-	echo "$in $out"
+	echo "$in      $out"
 done
-
+ 
